@@ -44,6 +44,7 @@
         <dependency>
             <groupId>io.apicurio</groupId>
             <artifactId>apicurio-registry-app</artifactId>
+            <scope>test</scope>
             <type>test-jar</type>
         </dependency>
     </dependencies>
@@ -103,6 +104,9 @@
                     <systemProperties>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                     </systemProperties>
+                    <!-- dependenciesToScan>
+                        <dependency>io.apicurio:apicurio-registry-app</dependency>
+                    </dependenciesToScan -->
                 </configuration>
             </plugin>
         </plugins>
