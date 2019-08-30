@@ -37,13 +37,18 @@ public class StorageExceptionMapper implements ExceptionMapper<StorageException>
         error.setCode(code);
         error.setMessage(t.getLocalizedMessage());
         // TODO also return a full stack trace as "detail"?
+
+        t.printStackTrace(); // TODO -- remove this!
+
         return error;
     }
     
     private static Response toResponse(Throwable t, int code) {
         Error error = toError(t, code);
-        Response response = Response.status(code).type(MediaType.APPLICATION_JSON).entity(error).build();
-        return response;
+        return Response.status(code)
+                       .type(MediaType.APPLICATION_JSON)
+                       .entity(error)
+                       .build();
     }
 
     /**

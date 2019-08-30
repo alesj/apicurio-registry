@@ -145,6 +145,14 @@ public abstract class AbstractMapRegistryStorage implements RegistryStorage {
         return MetaDataKeys.toArtifactMetaData(contents);
     }
 
+    protected Map<String, String> getContentMap(long id) {
+        Map<String, String> content = global.get(id);
+        if (content == null) {
+            throw new ArtifactNotFoundException(String.valueOf(id));
+        }
+        return content;
+    }
+
     /**
      * @see io.apicurio.registry.storage.RegistryStorage#createArtifact(java.lang.String, io.apicurio.registry.rest.beans.ArtifactType, java.lang.String)
      */
@@ -341,10 +349,7 @@ public abstract class AbstractMapRegistryStorage implements RegistryStorage {
      */
     @Override
     public StoredArtifact getArtifactVersion(long id) throws ArtifactNotFoundException, RegistryStorageException {
-        Map<String, String> content = global.get(id);
-        if (content == null) {
-            throw new ArtifactNotFoundException(String.valueOf(id));
-        }
+        Map<String, String> content = getContentMap(id);
         return toStoredArtifact(content);
     }
 
@@ -368,6 +373,9 @@ public abstract class AbstractMapRegistryStorage implements RegistryStorage {
             throw new VersionNotFoundException(artifactId, version);
         }
         removed.put(MetaDataKeys.DELETED, Boolean.TRUE.toString());
+        // remove from global as well
+        long globalId = Long.parseLong(removed.get(MetaDataKeys.GLOBAL_ID));
+        global.remove(globalId);
     }
 
     /**
