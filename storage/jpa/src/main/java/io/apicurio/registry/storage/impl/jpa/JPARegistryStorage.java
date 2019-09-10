@@ -16,19 +16,19 @@
 
 package io.apicurio.registry.storage.impl.jpa;
 
-import io.apicurio.registry.storage.ArtifactAlreadyExistsException;
+import io.apicurio.registry.storage.ex.ArtifactAlreadyExistsException;
 import io.apicurio.registry.storage.ArtifactMetaDataDto;
-import io.apicurio.registry.storage.ArtifactNotFoundException;
+import io.apicurio.registry.storage.ex.ArtifactNotFoundException;
 import io.apicurio.registry.storage.ArtifactVersionMetaDataDto;
 import io.apicurio.registry.storage.EditableArtifactMetaDataDto;
 import io.apicurio.registry.storage.MetaDataKeys;
 import io.apicurio.registry.storage.RegistryStorage;
-import io.apicurio.registry.storage.RegistryStorageException;
-import io.apicurio.registry.storage.RuleAlreadyExistsException;
+import io.apicurio.registry.storage.ex.RegistryStorageException;
+import io.apicurio.registry.storage.ex.RuleAlreadyExistsException;
 import io.apicurio.registry.storage.RuleConfigurationDto;
-import io.apicurio.registry.storage.RuleNotFoundException;
+import io.apicurio.registry.storage.ex.RuleNotFoundException;
 import io.apicurio.registry.storage.StoredArtifact;
-import io.apicurio.registry.storage.VersionNotFoundException;
+import io.apicurio.registry.storage.ex.VersionNotFoundException;
 import io.apicurio.registry.storage.impl.jpa.entity.Artifact;
 import io.apicurio.registry.storage.impl.jpa.entity.MetaData;
 import io.apicurio.registry.storage.impl.jpa.entity.Rule;

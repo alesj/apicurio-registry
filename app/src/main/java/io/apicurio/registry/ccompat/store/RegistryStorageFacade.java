@@ -17,10 +17,10 @@
 package io.apicurio.registry.ccompat.store;
 
 import io.apicurio.registry.ccompat.dto.Schema;
-import io.apicurio.registry.storage.ArtifactAlreadyExistsException;
-import io.apicurio.registry.storage.ArtifactNotFoundException;
-import io.apicurio.registry.storage.RegistryStorageException;
-import io.apicurio.registry.storage.VersionNotFoundException;
+import io.apicurio.registry.storage.ex.ArtifactAlreadyExistsException;
+import io.apicurio.registry.storage.ex.ArtifactNotFoundException;
+import io.apicurio.registry.storage.ex.RegistryStorageException;
+import io.apicurio.registry.storage.ex.VersionNotFoundException;
 
 import java.util.List;
 import java.util.Set;

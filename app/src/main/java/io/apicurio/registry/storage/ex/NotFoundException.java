@@ -14,30 +14,23 @@
  * limitations under the License.
  */
 
-package io.apicurio.registry.storage;
-
-import io.apicurio.registry.types.RegistryException;
+package io.apicurio.registry.storage.ex;
 
 /**
- * Base class for all storage exceptions.
  * @author eric.wittmann@gmail.com
  */
-public abstract class StorageException extends RegistryException {
+public abstract class NotFoundException extends StorageException {
+
+    private static final long serialVersionUID = 7134307797211927863L;
+
+    public NotFoundException() {
+    }
     
-    private static final long serialVersionUID = 7551763806044016474L;
-
-    public StorageException() {
-    }
-
-    public StorageException(String reason) {
-        super(reason);
-    }
-
-    public StorageException(Throwable cause) {
+    public NotFoundException(Throwable cause) {
         super(cause);
     }
-
-    public StorageException(String reason, Throwable cause) {
+    
+    public NotFoundException(String reason, Throwable cause) {
         super(reason, cause);
     }
 

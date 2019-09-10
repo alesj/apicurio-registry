@@ -14,34 +14,41 @@
  * limitations under the License.
  */
 
-package io.apicurio.registry.storage;
+package io.apicurio.registry.storage.ex;
 
 /**
  * @author eric.wittmann@gmail.com
  */
-public class RegistryStorageException extends StorageException {
+public class ArtifactNotFoundException extends NotFoundException {
 
-    private static final long serialVersionUID = 708084955101638005L;
+    private static final long serialVersionUID = -3614783501078800654L;
     
-    /**
-     * Constructor.
-     * @param cause
-     */
-    public RegistryStorageException(Throwable cause) {
+    private String artifactId;
+
+    public ArtifactNotFoundException(Throwable cause) {
         super(cause);
     }
 
     /**
      * Constructor.
-     * @param reason
-     * @param cause
      */
-    public RegistryStorageException(String reason, Throwable cause) {
-        super(reason, cause);
+    public ArtifactNotFoundException(String artifactId) {
+        this.artifactId = artifactId;
     }
 
-    public RegistryStorageException(String reason) {
-        super(reason);
+    public ArtifactNotFoundException(String artifactId, Throwable cause) {
+        super("Artifact with ID '" + artifactId + "' not found.", cause);
+        this.artifactId = artifactId;
+    }
+
+    /**
+     * @return the artifactId
+     *
+     * This value is informative.
+     * MAY be null.
+     */
+    public String getArtifactId() {
+        return artifactId;
     }
 
     /**
@@ -49,7 +56,7 @@ public class RegistryStorageException extends StorageException {
      */
     @Override
     public String getMessage() {
-        return "An unexpected server error was encountered.";
+        return "No artifact with ID '" + this.artifactId + "' was found.";
     }
 
 }

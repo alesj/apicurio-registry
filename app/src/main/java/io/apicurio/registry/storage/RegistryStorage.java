@@ -20,6 +20,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 
+import io.apicurio.registry.storage.ex.ArtifactAlreadyExistsException;
+import io.apicurio.registry.storage.ex.ArtifactNotFoundException;
+import io.apicurio.registry.storage.ex.RegistryStorageException;
+import io.apicurio.registry.storage.ex.RuleAlreadyExistsException;
+import io.apicurio.registry.storage.ex.RuleNotFoundException;
+import io.apicurio.registry.storage.ex.VersionNotFoundException;
 import io.apicurio.registry.types.ArtifactType;
 import io.apicurio.registry.types.RuleType;
 
@@ -150,7 +156,7 @@ public interface RegistryStorage {
      * @param artifactId
      * @param rule
      * @throws ArtifactNotFoundException
-     * @throws RuleNotFoundException
+     * @throws io.apicurio.registry.storage.ex.RuleNotFoundException
      * @throws RegistryStorageException
      */
     public void deleteArtifactRule(String artifactId, RuleType rule) throws ArtifactNotFoundException, RuleNotFoundException, RegistryStorageException;
@@ -176,7 +182,7 @@ public interface RegistryStorage {
      * @param artifactId
      * @param version
      * @throws ArtifactNotFoundException
-     * @throws VersionNotFoundException
+     * @throws io.apicurio.registry.storage.ex.VersionNotFoundException
      * @throws RegistryStorageException
      */
     public StoredArtifact getArtifactVersion(String artifactId, long version) throws ArtifactNotFoundException, VersionNotFoundException, RegistryStorageException;
@@ -197,7 +203,7 @@ public interface RegistryStorage {
      * @param artifactId
      * @param version
      * @throws ArtifactNotFoundException
-     * @throws VersionNotFoundException
+     * @throws io.apicurio.registry.storage.ex.VersionNotFoundException
      * @throws RegistryStorageException
      */
     public ArtifactVersionMetaDataDto getArtifactVersionMetaData(String artifactId, long version) throws ArtifactNotFoundException, VersionNotFoundException, RegistryStorageException;
@@ -209,7 +215,7 @@ public interface RegistryStorage {
      * @param version
      * @param metaData
      * @throws ArtifactNotFoundException
-     * @throws VersionNotFoundException
+     * @throws io.apicurio.registry.storage.ex.VersionNotFoundException
      * @throws RegistryStorageException
      */
     public void updateArtifactVersionMetaData(String artifactId, long version, EditableArtifactMetaDataDto metaData) throws ArtifactNotFoundException, VersionNotFoundException, RegistryStorageException;
@@ -220,7 +226,7 @@ public interface RegistryStorage {
      * @param artifactId
      * @param version
      * @throws ArtifactNotFoundException
-     * @throws VersionNotFoundException
+     * @throws io.apicurio.registry.storage.ex.VersionNotFoundException
      * @throws RegistryStorageException
      */
     public void deleteArtifactVersionMetaData(String artifactId, long version) throws ArtifactNotFoundException, VersionNotFoundException, RegistryStorageException;
@@ -235,7 +241,7 @@ public interface RegistryStorage {
      * Creates a single global rule.  Duplicates (by name) are not allowed.  Stores the rule name and configuration.
      * @param rule
      * @param config
-     * @throws RuleAlreadyExistsException
+     * @throws io.apicurio.registry.storage.ex.RuleAlreadyExistsException
      * @throws RegistryStorageException
      */
     public void createGlobalRule(RuleType rule, RuleConfigurationDto config) throws RuleAlreadyExistsException, RegistryStorageException;

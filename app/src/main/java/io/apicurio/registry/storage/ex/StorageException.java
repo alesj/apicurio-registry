@@ -14,23 +14,30 @@
  * limitations under the License.
  */
 
-package io.apicurio.registry.storage;
+package io.apicurio.registry.storage.ex;
+
+import io.apicurio.registry.types.RegistryException;
 
 /**
+ * Base class for all storage exceptions.
  * @author eric.wittmann@gmail.com
  */
-public abstract class AlreadyExistsException extends StorageException {
-
-    private static final long serialVersionUID = 5055445625652989500L;
-
-    public AlreadyExistsException() {
-    }
+public abstract class StorageException extends RegistryException {
     
-    public AlreadyExistsException(Throwable cause) {
+    private static final long serialVersionUID = 7551763806044016474L;
+
+    public StorageException() {
+    }
+
+    public StorageException(String reason) {
+        super(reason);
+    }
+
+    public StorageException(Throwable cause) {
         super(cause);
     }
-    
-    public AlreadyExistsException(String reason, Throwable cause) {
+
+    public StorageException(String reason, Throwable cause) {
         super(reason, cause);
     }
 

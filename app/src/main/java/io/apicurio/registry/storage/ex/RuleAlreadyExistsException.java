@@ -14,30 +14,24 @@
  * limitations under the License.
  */
 
-package io.apicurio.registry.storage;
+package io.apicurio.registry.storage.ex;
+
+import io.apicurio.registry.types.RuleType;
 
 /**
  * @author eric.wittmann@gmail.com
  */
-public class VersionNotFoundException extends ArtifactNotFoundException {
+public class RuleAlreadyExistsException extends AlreadyExistsException {
 
-    private static final long serialVersionUID = 969959730600115392L;
-
-    private final long version;
+    private static final long serialVersionUID = 2412206165461946827L;
+    
+    private final RuleType rule;
 
     /**
      * Constructor.
      */
-    public VersionNotFoundException(String artifactId, long version) {
-        super(artifactId);
-        this.version = version;
-    }
-
-    /**
-     * @return the version
-     */
-    public long getVersion() {
-        return version;
+    public RuleAlreadyExistsException(RuleType rule) {
+        this.rule = rule;
     }
 
     /**
@@ -45,7 +39,7 @@ public class VersionNotFoundException extends ArtifactNotFoundException {
      */
     @Override
     public String getMessage() {
-        return "No version '" + this.version + "' found for artifact with ID '" + this.getArtifactId() + "'.";
+        return "A rule named '" + this.rule.name() + "' already exists.";
     }
 
 }

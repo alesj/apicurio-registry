@@ -16,6 +16,7 @@
 
 package io.apicurio.registry.storage;
 
+import io.apicurio.registry.storage.ex.ArtifactNotFoundException;
 import io.apicurio.registry.types.ArtifactType;
 import io.apicurio.registry.types.RuleType;
 import io.quarkus.test.junit.QuarkusTest;

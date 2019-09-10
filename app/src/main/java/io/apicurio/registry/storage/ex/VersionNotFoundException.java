@@ -14,41 +14,30 @@
  * limitations under the License.
  */
 
-package io.apicurio.registry.storage;
+package io.apicurio.registry.storage.ex;
 
 /**
  * @author eric.wittmann@gmail.com
  */
-public class ArtifactNotFoundException extends NotFoundException {
+public class VersionNotFoundException extends ArtifactNotFoundException {
 
-    private static final long serialVersionUID = -3614783501078800654L;
-    
-    private String artifactId;
+    private static final long serialVersionUID = 969959730600115392L;
 
-    public ArtifactNotFoundException(Throwable cause) {
-        super(cause);
-    }
+    private final long version;
 
     /**
      * Constructor.
      */
-    public ArtifactNotFoundException(String artifactId) {
-        this.artifactId = artifactId;
-    }
-
-    public ArtifactNotFoundException(String artifactId, Throwable cause) {
-        super("Artifact with ID '" + artifactId + "' not found.", cause);
-        this.artifactId = artifactId;
+    public VersionNotFoundException(String artifactId, long version) {
+        super(artifactId);
+        this.version = version;
     }
 
     /**
-     * @return the artifactId
-     *
-     * This value is informative.
-     * MAY be null.
+     * @return the version
      */
-    public String getArtifactId() {
-        return artifactId;
+    public long getVersion() {
+        return version;
     }
 
     /**
@@ -56,7 +45,7 @@ public class ArtifactNotFoundException extends NotFoundException {
      */
     @Override
     public String getMessage() {
-        return "No artifact with ID '" + this.artifactId + "' was found.";
+        return "No version '" + this.version + "' found for artifact with ID '" + this.getArtifactId() + "'.";
     }
 
 }

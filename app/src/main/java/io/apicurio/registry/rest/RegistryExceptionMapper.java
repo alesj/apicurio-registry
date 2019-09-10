@@ -18,8 +18,8 @@ package io.apicurio.registry.rest;
 
 import io.apicurio.registry.rest.beans.Error;
 import io.apicurio.registry.rules.RuleViolationException;
-import io.apicurio.registry.storage.AlreadyExistsException;
-import io.apicurio.registry.storage.NotFoundException;
+import io.apicurio.registry.storage.ex.AlreadyExistsException;
+import io.apicurio.registry.storage.ex.NotFoundException;
 import io.apicurio.registry.types.RegistryException;
 
 import java.net.HttpURLConnection;

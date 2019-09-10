@@ -14,24 +14,42 @@
  * limitations under the License.
  */
 
-package io.apicurio.registry.storage;
+package io.apicurio.registry.storage.ex;
 
 /**
  * @author eric.wittmann@gmail.com
  */
-public abstract class NotFoundException extends StorageException {
+public class RegistryStorageException extends StorageException {
 
-    private static final long serialVersionUID = 7134307797211927863L;
-
-    public NotFoundException() {
-    }
+    private static final long serialVersionUID = 708084955101638005L;
     
-    public NotFoundException(Throwable cause) {
+    /**
+     * Constructor.
+     * @param cause
+     */
+    public RegistryStorageException(Throwable cause) {
         super(cause);
     }
-    
-    public NotFoundException(String reason, Throwable cause) {
+
+    /**
+     * Constructor.
+     * @param reason
+     * @param cause
+     */
+    public RegistryStorageException(String reason, Throwable cause) {
         super(reason, cause);
+    }
+
+    public RegistryStorageException(String reason) {
+        super(reason);
+    }
+
+    /**
+     * @see java.lang.Throwable#getMessage()
+     */
+    @Override
+    public String getMessage() {
+        return "An unexpected server error was encountered.";
     }
 
 }
