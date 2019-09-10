@@ -60,7 +60,7 @@ public class RuleConfigMapperUpdater {
      * Persist new and update existing metadata entry,
      * do not remove existing ones.
      */
-    public void persistUpdate(EntityManager em, Rule rule) {
+    public RuleConfigMapperUpdater persistUpdate(EntityManager em, Rule rule) {
         Map<String, String> toPersist = new HashMap<>(added);
 
         existing.forEach(e -> {
@@ -82,6 +82,8 @@ public class RuleConfigMapperUpdater {
                 );
             }
         });
+
+        return this;
     }
 
     private Map<String, String> merge() {

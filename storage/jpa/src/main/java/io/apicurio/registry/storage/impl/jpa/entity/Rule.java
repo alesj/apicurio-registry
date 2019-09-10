@@ -56,5 +56,5 @@ public class Rule {
     private String artifactId;
 
     @Column(name = "name", updatable = false, nullable = false)
-    private RuleType name;
+    private String name;
 }

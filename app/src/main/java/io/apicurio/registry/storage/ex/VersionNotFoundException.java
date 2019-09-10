@@ -28,6 +28,11 @@ public class VersionNotFoundException extends ArtifactNotFoundException {
     /**
      * Constructor.
      */
+    public VersionNotFoundException(String artifactId, long version, Throwable cause) {
+        super(artifactId, cause);
+        this.version = version;
+    }
+
     public VersionNotFoundException(String artifactId, long version) {
         super(artifactId);
         this.version = version;
