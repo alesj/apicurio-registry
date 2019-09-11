@@ -359,7 +359,7 @@ public class JPARegistryStorage implements RegistryStorage {
             return entityManager.createQuery("SELECT r.name FROM Rule r " +
                     "WHERE r.artifactId = :artifact_id", String.class)
                     .setParameter("artifact_id", artifactId)
-                    .getResultList().stream().map(e -> RuleType.fromValue(e)).collect(Collectors.toList());
+                    .getResultList().stream().map(RuleType::fromValue).collect(Collectors.toList());
 
         } catch (PersistenceException ex) {
             throw new RegistryStorageException(ex);
@@ -611,7 +611,7 @@ public class JPARegistryStorage implements RegistryStorage {
         try {
             return entityManager.createQuery("SELECT r.name FROM Rule r " +
                     "WHERE r.artifactId IS NULL", String.class)
-                    .getResultList().stream().map(e -> RuleType.fromValue(e)).collect(Collectors.toList());
+                    .getResultList().stream().map(RuleType::fromValue).collect(Collectors.toList());
         } catch (PersistenceException ex) {
             throw new RegistryStorageException(ex);
         }
