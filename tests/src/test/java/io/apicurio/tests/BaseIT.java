@@ -44,7 +44,7 @@ import java.util.TimeZone;
 public abstract class BaseIT implements TestSeparator, Constants {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BaseIT.class);
-    private static KafkaFacade kafkaCluster = new KafkaFacade();
+    protected static KafkaFacade kafkaCluster = new KafkaFacade();
     private static RegistryFacade registries = new RegistryFacade();
 
     protected static SchemaRegistryClient confluentService;
