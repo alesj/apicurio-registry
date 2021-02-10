@@ -1,0 +1,17 @@
+syntax = "proto3";
+package io.apicurio.registry.support;
+
+/*
+* This is the header for all
+*/
+import "google/protobuf/timestamp.proto";
+
+message Header {
+    google.protobuf.Timestamp time = 1;
+    string source = 2;
+    string destination = 3;
+    string uuid = 4;
+    repeated string source_uuids = 5;
+    string message_type_id  = 6;
+    string raw_message = 7;
+}

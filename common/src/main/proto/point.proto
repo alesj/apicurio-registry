@@ -1,0 +1,19 @@
+syntax = "proto3";
+package io.apicurio.registry.support;
+
+/*
+*  This is the point message (longitude/latitude)
+*/
+
+message Point {
+    oneof longitude_oneof {
+        double longitude = 1;
+    }
+    oneof latitude_oneof {
+        double latitude = 2;
+    }
+    oneof altitude_oneof {
+        double altitude = 3;
+    }
+
+}

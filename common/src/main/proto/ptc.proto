@@ -1,0 +1,41 @@
+syntax = "proto3";
+package io.apicurio.registry.support;
+option java_multiple_files=true;
+
+
+import "google/protobuf/timestamp.proto";
+import "header.proto";
+import "point.proto";
+
+message Ptc2080 {
+    io.apicurio.registry.support.Header header = 1;
+    double d1 = 2;
+    double d2 = 3;
+    string s1 = 4;
+    string s2 = 5;
+    string s3 = 6;
+    int32 i1 = 7;
+    int32 i2 = 8;
+    double d3 = 9;
+    int32 i3 = 10;
+    string s4 = 11;
+    int64 bi1 = 12;
+    int32 i4 = 13;
+    string s5 = 14;
+    string s6 = 15;
+    int32 i5 = 16;
+    int32 i6 = 17;
+    int32 i7 = 18;
+    int32 i8 = 19;
+    string s7 = 20;
+    int32 i9 = 21;
+    google.protobuf.Timestamp state_time = 22;
+    int32 i10 = 23;
+    string s8 = 24;
+    string s9 = 25;
+    int32 i11 = 26;
+    string s10 = 27;
+    int32 i12 = 28;
+    string s11 = 29;
+    io.apicurio.registry.support.Point point = 30;
+}
